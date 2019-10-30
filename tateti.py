@@ -70,4 +70,15 @@ class TaTeTi:
         return self.game_over
 
     def draw_board(self):
-        return self.board
+        board = ''
+        for idx in range(len(self.board)):
+            if idx == 0:
+                board += '\n'
+            if idx in (3, 6):
+                board += ' \n---+---+---\n'
+            piece = self.board[idx] if self.board[idx] != ' ' else str(idx + 1)
+            board += ' ' + piece
+            if idx not in (2, 5, 8):
+                board += ' |'
+        board += ' \n'
+        return board
