@@ -13,6 +13,8 @@ class TaTeTi:
         else:
             raise Exception
         self.check_board()
+        if not self.game_over:
+            self.game_over = self.full()
 
     def validate(self, position):
         return self.board[position - 1] == ' '
@@ -30,9 +32,6 @@ class TaTeTi:
         for _ in range(3):
             self.check(self.board[val:val + 3])
             val += 3
-    #    self.check(self.board[0:3])
-    #   self.check(self.board[3:6])
-    #  self.check(self.board[6:9])
 
     def check_cols(self):
         for col_number in range(3):
